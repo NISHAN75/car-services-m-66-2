@@ -31,6 +31,11 @@ const OrderCheack = () => {
   return (
     <div>
       <h1>This is Your Order :{orders.length} </h1>
+      {
+        orders.map(order => <div key={orders._id}>
+          <p>{order.email} ----{order.service}</p>
+        </div>)
+      }
     </div>
   );
 };
