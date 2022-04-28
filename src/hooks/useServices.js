@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-const useServices =()=>{
+const useServices = () => {
   const [services, setServices] = useState([]);
 
-    useEffect( () =>{
-        fetch('http://localhost:5000/services')
-        .then(res => res.json())
-        .then(data => setServices(data));
-    }, []);
-    return[services ,setServices];
-}
-export default useServices; 
+  useEffect(() => {
+    fetch("https://arcane-springs-59725.herokuapp.com/services")
+      .then((res) => res.json())
+      .then((data) => setServices(data));
+  }, []);
+  return [services, setServices];
+};
+export default useServices;

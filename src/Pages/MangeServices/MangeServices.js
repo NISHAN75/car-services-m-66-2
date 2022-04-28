@@ -2,21 +2,20 @@ import React from "react";
 import useServices from "../../hooks/useServices";
 
 const MangeServices = () => {
-  const [services,setServices] = useServices();
+  const [services, setServices] = useServices();
   const handleDelete = (id) => {
-    const proceed=window.confirm('are you sure');
-    if(proceed){
-      const url = `http://localhost:5000/service/${id}`;
+    const proceed = window.confirm("are you sure");
+    if (proceed) {
+      const url = `https://arcane-springs-59725.herokuapp.com/service/${id}`;
       fetch(url, {
         method: "DELETE",
       })
         .then((res) => res.json())
-        .then(data => {
-          console.log(data)
-          const remaining=services.filter(service => service._id !== id);
-          setServices(remaining)
-        })
-        
+        .then((data) => {
+          console.log(data);
+          const remaining = services.filter((service) => service._id !== id);
+          setServices(remaining);
+        });
     }
   };
   return (
